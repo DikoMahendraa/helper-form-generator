@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import GeneratedForm from "./GeneratedForm";
 import GeneratedCode from "./GeneratedCode";
+import { PackagePlus } from "lucide-react";
 
 const FormGenerator = () => {
   const [inputs, setInputs] = useState([]);
@@ -59,26 +60,23 @@ const FormGenerator = () => {
   };
 
   return (
-    <div className="flex gap-4">
-      <div className="w-1/2 p-4 bg-gray-100 rounded shadow">
-        <button
-          className="mb-4 px-4 py-2 bg-blue-500 text-white rounded"
-          onClick={addInput}
-        >
-          Tambah Input
-        </button>
+    <div className="flex lg:flex-row flex-col gap-4 mx-auto">
+      <div className="lg:w-1/2 w-full p-4 border-2 border-gray-500/50 rounded shadow">
         <form onSubmit={handleSubmit}>
           {inputs.map((input, index) => (
-            <div key={input.id} className="mb-4 flex items-center gap-4">
+            <div
+              key={input.id}
+              className="mb-4 flex items-center gap-4 border-b border-gray-400 pb-4"
+            >
               <input
-                className="block mb-2 p-2 border rounded w-full"
+                className="block px-2 py-1 bg-[#1f2a38] outline-none text-white text-sm placeholder:text-sm placeholder:text-gray-400 border rounded w-full"
                 type="text"
                 placeholder="Label"
                 value={input.label}
                 onChange={(e) => handleLabelChange(index, e.target.value)}
               />
               <select
-                className="block mb-2 p-2 border rounded w-full"
+                className="block px-2 py-1 text-sm border rounded w-full"
                 onChange={(e) => handleTypeChange(index, e.target.value)}
                 value={input.type}
               >
@@ -88,7 +86,7 @@ const FormGenerator = () => {
                 <option value="textarea">Textarea</option>
               </select>
               <input
-                className="block mb-2 p-2 border rounded w-full"
+                className="block px-2 py-1 bg-[#1f2a38] text-white outline-none text-sm placeholder:text-sm placeholder:text-gray-400 border rounded w-full"
                 type="text"
                 placeholder="Placeholder"
                 value={input.placeholder}
@@ -96,29 +94,31 @@ const FormGenerator = () => {
               />
             </div>
           ))}
-          {inputs.length > 0 && (
-            <button
-              className="mt-4 px-4 py-2 bg-green-500 text-white rounded"
-              type="submit"
-            >
-              Submit
-            </button>
-          )}
         </form>
         {inputs.length > 0 && (
-          <div className="flex justify-center mt-4">
+          <div className="flex-col justify-center">
             <button
-              className="mr-2 px-4 py-2 bg-purple-500 text-white rounded"
-              onClick={generateCode}
+              className="mb-4 px-4 py-2 w-full justify-center flex items-center gap-2 text-sm bg-cyan-700 text-white rounded"
+              onClick={addInput}
             >
-              Tampilkan Form
+              <PackagePlus /> New Component
             </button>
-            <button
-              className="px-4 py-2 bg-purple-500 text-white rounded"
-              onClick={showCodeBlock}
-            >
-              Lihat Kode
-            </button>
+            <div className="flex justify-center mt-4 gap-2">
+              <button
+                disabled={showGeneratedForm}
+                className="px-4 py-2 w-full text-sm bg-cyan-600/50 disabled:bg-cyan-600/30 text-white rounded"
+                onClick={generateCode}
+              >
+                Show UI
+              </button>
+              <button
+                disabled={showCode}
+                className="px-4 w-full py-2 text-sm bg-cyan-600/50 disabled:bg-cyan-600/30 text-white rounded"
+                onClick={showCodeBlock}
+              >
+                Generate Code
+              </button>
+            </div>
           </div>
         )}
       </div>

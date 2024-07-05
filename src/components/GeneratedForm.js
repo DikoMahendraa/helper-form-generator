@@ -17,11 +17,14 @@ const GeneratedForm = ({ inputs }) => {
   };
 
   return (
-    <div className="w-1/2 p-4 bg-white rounded shadow">
+    <div className="lg:w-1/2 w-full p-4 border-2 border-gray-500/50 rounded shadow">
       <form onSubmit={handleSubmit}>
         {inputs.map((input) => (
           <div key={input.id} className="mb-4">
-            <label className="block mb-2" htmlFor={`input_${input.id}`}>
+            <label
+              className="block mb-2 text-white"
+              htmlFor={`input_${input.id}`}
+            >
               {input.label}
             </label>
             {input.type === "textarea" ? (
@@ -46,7 +49,7 @@ const GeneratedForm = ({ inputs }) => {
         ))}
         <button
           type="submit"
-          className="px-4 py-2 bg-blue-500 text-white rounded"
+          className="px-4 py-2 bg-cyan-500/50 text-white rounded"
         >
           Submit
         </button>

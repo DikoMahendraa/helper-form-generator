@@ -18,58 +18,48 @@ const GeneratedForm = () => {
   return (
     <form onSubmit={handleSubmit} className="w-1/2 p-4 bg-white rounded shadow">
       <label className="block mb-2" htmlFor="input_0">
-        email
+        Label
       </label>
       <input
         id="input_0"
         type="text"
         name="input_0"
         placeholder=""
-        className="p-2 border rounded w-full"
+        className="p-2 border rounded w-full outline-none mb-2"
       />
       <label className="block mb-2" htmlFor="input_1">
-        first name
+        Email
       </label>
       <input
         id="input_1"
         type="text"
         name="input_1"
         placeholder=""
-        className="p-2 border rounded w-full"
+        className="p-2 border rounded w-full outline-none mb-2"
       />
       <label className="block mb-2" htmlFor="input_2">
-        last name
+        Password
       </label>
       <input
         id="input_2"
-        type="text"
+        type="password"
         name="input_2"
         placeholder=""
-        className="p-2 border rounded w-full"
+        className="p-2 border rounded w-full outline-none mb-2"
       />
       <label className="block mb-2" htmlFor="input_3">
-        password
+        Confirm Password
       </label>
       <input
         id="input_3"
         type="text"
         name="input_3"
         placeholder=""
-        className="p-2 border rounded w-full"
-      />
-      <label className="block mb-2" htmlFor="input_4">
-        confirm password
-      </label>
-      <input
-        id="input_4"
-        type="text"
-        name="input_4"
-        placeholder=""
-        className="p-2 border rounded w-full"
+        className="p-2 border rounded w-full outline-none mb-2"
       />
       <button
         type="submit"
-        className="px-4 py-2 bg-blue-500 text-white rounded"
+        className="px-4 py-2 bg-cyan-500 mt-4 text-white rounded"
       >
         Submit
       </button>
