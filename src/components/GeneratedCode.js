@@ -1,4 +1,4 @@
-import { Copy } from "lucide-react";
+import { Atom, Copy } from "lucide-react";
 import React, { useState } from "react";
 
 const GeneratedCode = ({ inputs }) => {
@@ -54,7 +54,9 @@ export default GeneratedForm;
   return (
     <div className="lg:w-1/2 w-full p-4 bg-gray-800 text-white rounded shadow">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="mb-2 text-lg font-bold">Generated React Code:</h3>
+        <h3 className="text-lg font-bold flex items-center gap-2">
+          <Atom /> Generated React Code:
+        </h3>
         <div className="flex items-center gap-2">
           {copied && (
             <span className="text-xs italic text-cyan-500">

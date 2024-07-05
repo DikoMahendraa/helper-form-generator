@@ -1,33 +1,24 @@
 import { FilePenLine, FileScan, Signature } from "lucide-react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   return (
-    <div className="bg-gradient-to-br from-blue-900 to-black min-h-screen text-white">
+    <div className="bg-gradient-to-br from-cyan-900 to-black min-h-screen text-white">
       <header className="py-4">
         <div className="container mx-auto flex flex-wrap justify-between items-center px-4">
-          <div className="text-3xl font-bold">Simple Form Generator</div>
+          <div className="text-3xl font-bold">S.F.M</div>
           <nav className="mt-4 sm:mt-0">
-            <a href="#" className="block sm:inline-block text-white mr-4">
+            <Link to="#" className="block sm:inline-block text-white mr-4">
               Home
-            </a>
-            <a
-              href="#features"
-              className="block sm:inline-block text-white mr-4"
-            >
+            </Link>
+            <Link to="#" className="block sm:inline-block text-white mr-4">
               Features
-            </a>
-            <a href="#demo" className="block sm:inline-block text-white mr-4">
+            </Link>
+            <Link to="#demo" className="block sm:inline-block text-white mr-4">
               Demo
-            </a>
-            <a
-              href="https://github.com/yourusername/simple-form-generator"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block sm:inline-block text-white"
-            >
-              GitHub
-            </a>
+            </Link>
+            <Link to="#">GitHub</Link>
           </nav>
         </div>
       </header>
@@ -48,9 +39,11 @@ const LandingPage = () => {
             Generate and customize forms with just a few clicks. Copy and paste
             directly into your projects.
           </p>
-          <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-            Try It Now
-          </button>
+          <Link to="/create-component">
+            <button className="bg-cyan-500/50 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded">
+              Try It Now
+            </button>
+          </Link>
         </section>
 
         <section className="container mx-auto">
@@ -101,19 +94,19 @@ const LandingPage = () => {
         {/* Include other sections like Demo, How It Works, Code Example, etc. */}
       </main>
 
-      <footer className="bg-gray-900 text-white py-4 text-center">
+      <footer className="bg-gray-900 text-white py-4 text-center rounded-tl-full rounded-tr-full">
         <div className="container mx-auto">
           <p>&copy; 2024 Simple Form Generator. All rights reserved.</p>
           <div className="mt-2">
-            <a href="#" className="text-white ml-4">
+            <Link to="#" className="text-white ml-4">
               Contact
-            </a>
-            <a href="#" className="text-white ml-4">
+            </Link>
+            <Link to="#" className="text-white ml-4">
               Privacy Policy
-            </a>
-            <a href="#" className="text-white ml-4">
+            </Link>
+            <Link to="#" className="text-white ml-4">
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </footer>
