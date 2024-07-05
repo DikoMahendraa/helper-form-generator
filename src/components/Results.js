@@ -1,29 +1,3 @@
-# Simple Form Generator
-
-![Demo](demo.gif)
-
-Create HTML forms effortlessly with just a few clicks! This tool allows you to generate and customize forms dynamically, and then easily copy the generated code into your project.
-
-## Features
-
-- **Easy Form Creation:** Generate forms by clicking on input types and options.
-- **Customization:** Customize form elements such as input types, labels, and validation rules.
-- **Code Generation:** Automatically generates HTML and JavaScript code based on your selections.
-- **Copy to Clipboard:** One-click copy functionality for seamless integration into your projects.
-- **Responsive Design:** Tailwind CSS styling ensures a modern and responsive user interface.
-
-## Usage
-
-1. **Select Input Types:** Click on the desired input types (text, email, checkbox, etc.).
-2. **Customize Options:** Set labels, placeholder texts, and validation rules.
-3. **Generate Code:** Click the "Generate Code" button to generate HTML and JavaScript.
-4. **Copy to Clipboard:** Use the "Copy All Code" button to copy the generated code.
-5. **Paste into Your Project:** Paste the copied code into your HTML file or React component.
-
-## Example
-
-```html
-<!-- Generated Form Example -->
 import React, { useState } from "react";
 
 const GeneratedForm = () => {
@@ -104,6 +78,3 @@ const GeneratedForm = () => {
 };
 
 export default GeneratedForm;
-type="submit">Submit</button>
-</form>
-```
