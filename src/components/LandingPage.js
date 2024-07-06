@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   return (
-    <div className="bg-gradient-to-br from-cyan-900 to-black min-h-screen text-white">
+    <div className="bg-gradient-to-br from-black to-cyan-900 min-h-screen text-white">
       <header className="py-4">
         <div className="container mx-auto flex flex-wrap justify-between items-center px-4">
           <div className="text-3xl font-bold">S.F.M</div>

@@ -5,7 +5,7 @@ import { CircleAlert, PackagePlus } from "lucide-react";
 
 const EmptyState = () => {
   return (
-    <div className="text-center my-8">
+    <div className="text-center my-8 border-2 py-8 border-gray-500/50 rounded-md w-1/2">
       <div className="flex justify-center">
         <CircleAlert color="gray" size={32} />
       </div>
@@ -22,7 +22,7 @@ const EmptyState = () => {
 const FormGenerator = () => {
   const [inputs, setInputs] = useState([]);
   const [showCode, setShowCode] = useState(false);
-  const [showGeneratedForm, setShowGeneratedForm] = useState(false);
+  const [showGeneratedForm, setShowGeneratedForm] = useState(true);
 
   const addInput = () => {
     setInputs([
@@ -77,7 +77,6 @@ const FormGenerator = () => {
   return (
     <div className="flex lg:flex-row flex-col gap-4 mx-auto">
       <div className="lg:w-1/2 w-full p-4 border-2 border-gray-500/50 rounded shadow">
-        {inputs.length <= 0 && <EmptyState />}
         <form onSubmit={handleSubmit}>
           {inputs.map((input, index) => (
             <div
@@ -138,7 +137,12 @@ const FormGenerator = () => {
           )}
         </div>
       </div>
-      {showGeneratedForm && <GeneratedForm inputs={inputs} />}
+
+      {!(inputs.length > 0) && <EmptyState />}
+
+      {inputs.length > 0 && showGeneratedForm && (
+        <GeneratedForm inputs={inputs} />
+      )}
       {showCode && <GeneratedCode inputs={inputs} />}
     </div>
   );
