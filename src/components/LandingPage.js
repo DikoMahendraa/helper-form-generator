@@ -1,13 +1,13 @@
-import { FilePenLine, FileScan, Signature } from "lucide-react";
+import { FilePenLine, FileScan, Signature, Workflow } from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   return (
-    <div className="bg-gradient-to-br from-black to-cyan-900 min-h-screen text-white">
+    <div className="bg-gradient-to-br relative from-black to-cyan-900 min-h-screen text-white">
       <header className="py-4">
         <div className="container mx-auto flex flex-wrap justify-between items-center px-4">
-          <div className="text-3xl font-bold">S.F.M</div>
+          <div className="text-3xl font-bold">Form Builder</div>
           <nav className="mt-4 sm:mt-0">
             <Link to="#" className="block sm:inline-block text-white mr-4">
               Home
@@ -23,15 +23,8 @@ const LandingPage = () => {
         </div>
       </header>
 
-      <main className="py-12">
-        <section id="hero" className="container mx-auto text-center mb-6">
-          <div className="mb-8">
-            <img
-              src="/illustration.png"
-              alt="Illustration"
-              className="mx-auto w-1/4 h-1/3 rounded-xl"
-            />
-          </div>
+      <main className="py-12 pb-24">
+        <section id="hero" className="container mx-auto text-center mb-6 py-12">
           <h1 className="text-4xl font-bold mb-4">
             Effortlessly Create HTML Forms
           </h1>
@@ -86,25 +79,37 @@ const LandingPage = () => {
                     </p>
                   </div>
                 </div>
+                <div className="w-full sm:w-1/2 lg:w-1/3 p-4">
+                  <div className="bg-gray-800 p-6 rounded-lg shadow-md">
+                    <Workflow size={28} />{" "}
+                    <h3 className="text-xl my-2 font-bold text-white">
+                      Easy Integration
+                    </h3>
+                    <p className="text-gray-300">
+                      Integrate with Zod, Yup, and React Hook Form with just a
+                      click.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
         </section>
-
-        {/* Include other sections like Demo, How It Works, Code Example, etc. */}
       </main>
 
-      <footer className="bg-gray-900 text-white py-4 text-center rounded-tl-full rounded-tr-full">
+      <footer className="bg-gray-900 absolute w-full bottom-0 text-white py-4 text-center rounded-tl-full rounded-tr-full">
         <div className="container mx-auto">
-          <p>&copy; 2024 Simple Form Generator. All rights reserved.</p>
-          <div className="mt-2">
-            <Link to="#" className="text-white ml-4">
+          <p className="text-sm">
+            &copy; 2024 Simple Form Builder. All rights reserved.
+          </p>
+          <div className="mt-2 text-sm">
+            <Link to="#" className="text-gray-400 ml-4">
               Contact
             </Link>
-            <Link to="#" className="text-white ml-4">
+            <Link to="#" className="text-gray-400 ml-4">
               Privacy Policy
             </Link>
-            <Link to="#" className="text-white ml-4">
+            <Link to="#" className="text-gray-400 ml-4">
               Terms of Service
             </Link>
           </div>

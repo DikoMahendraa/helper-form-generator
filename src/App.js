@@ -2,7 +2,6 @@ import React from "react";
 import FormGenerator from "./components/FormGenerator";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
-import GeneratedForm from "./components/Results";
 
 function App() {
   return (
@@ -14,7 +13,6 @@ function App() {
       </Link>
       <h1 className="text-2xl font-bold mb-4 text-white">Form Generator</h1>
       <FormGenerator />
-      <GeneratedForm />
     </div>
   );
 }
