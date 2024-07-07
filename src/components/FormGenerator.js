@@ -93,7 +93,9 @@ const FormGenerator = () => {
                 className="mb-4 flex items-center gap-4 border-b border-gray-400 pb-4"
               >
                 <div className="w-full text-xs">
-                  <label className="text-white text-xs">Lable</label>
+                  <label className="text-white lg:text-base text-sm">
+                    Lable
+                  </label>
                   <input
                     className="block mt-1 px-2 py-1 bg-[#1f2a38] outline-none text-gray-300 text-sm placeholder:text-xs placeholder:text-gray-400 border rounded w-full"
                     type="text"
@@ -103,9 +105,11 @@ const FormGenerator = () => {
                   />
                 </div>
                 <div className="w-full">
-                  <label className="text-white text-xs">Choose Type</label>
+                  <label className="text-white lg:text-base text-sm">
+                    Choose Type
+                  </label>
                   <select
-                    className="block bg-[#1f2a38] text-white px-2 py-2 text-xs border rounded w-full"
+                    className="block bg-[#1f2a38] text-white px-2 lg:py-2 py-[6px] text-xs lg:text-base border rounded w-full"
                     onChange={(e) => handleTypeChange(index, e.target.value)}
                     value={input.type}
                   >
@@ -116,10 +120,12 @@ const FormGenerator = () => {
                   </select>
                 </div>
                 <div className="w-full">
-                  <label className="text-white text-xs">Placeholder</label>
+                  <label className="text-white lg:text-base text-sm">
+                    Placeholder
+                  </label>
                   <div className="flex items-center gap-2">
                     <input
-                      className="block px-2 py-1 bg-[#1f2a38] text-gray-300 placeholder:text-xs outline-none text-sm placeholder:text-gray-400 border rounded w-full"
+                      className="block px-2 py-1 bg-[#1f2a38] text-gray-300 placeholder:lg:text-base placeholder:text-xs lg:text-base outline-none text-sm placeholder:text-gray-400 border rounded w-full"
                       type="text"
                       placeholder="Enter your placeholder"
                       value={input.placeholder}

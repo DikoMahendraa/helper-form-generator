@@ -19,11 +19,16 @@ const references = [
 
 const ReferenceList = () => {
   return (
-    <div className="w-1/2 mt-6 rounded shadow">
-      <h2 className="text-lg font-bold mb-4">Official Documentation</h2>
+    <div className="lg:w-1/2 w-full mt-6 rounded shadow">
+      <h2 className="lg:text-lg text-base font-bold mb-4">
+        Official Documentation
+      </h2>
       <ul className="list-disc pl-5 space-y-2">
         {references.map((ref, index) => (
-          <li key={index} className="text-blue-500 text-sm hover:underline">
+          <li
+            key={index}
+            className="text-blue-500 lg:text-sm text-xs hover:underline"
+          >
             <a href={ref.url} target="_blank" rel="noopener noreferrer">
               {ref.name}
             </a>
@@ -329,7 +334,7 @@ const GeneratedCode = ({ inputs }) => {
 
       <div className="my-8">
         <h5 className="mb-4">Integration with</h5>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           <button
             onClick={() => onIntegrationWith("")}
             className="px-4 py-2 hover:bg-cyan-600/50 flex text-sm items-center gap-2  border border-green-500 text-white rounded"
@@ -367,8 +372,8 @@ const GeneratedCode = ({ inputs }) => {
             <img
               src="https://pbs.twimg.com/profile_images/1373527896472489987/YjVZynHb_400x400.jpg"
               alt="zod + react hook form logo"
-              width={24}
-              height={24}
+              width={14}
+              height={14}
             />
             Zod + RHF
           </button>
@@ -379,8 +384,8 @@ const GeneratedCode = ({ inputs }) => {
             <img
               src="https://pbs.twimg.com/profile_images/1373527896472489987/YjVZynHb_400x400.jpg"
               alt="yup + react hook form logo"
-              width={24}
-              height={24}
+              width={14}
+              height={14}
             />
             Yup + RHF
           </button>
@@ -388,7 +393,9 @@ const GeneratedCode = ({ inputs }) => {
         <ReferenceList />
       </div>
       <pre className="whitespace-pre-wrap p-4 bg-gray-900 rounded break-words">
-        <code className="language-javascript">{code}</code>
+        <code className="language-javascript !text-xs lg:!text-base">
+          {code}
+        </code>
       </pre>
     </div>
   );
