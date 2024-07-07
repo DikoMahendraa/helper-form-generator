@@ -1,4 +1,3 @@
-// src/components/GeneratedForm.js
 import React, { useState } from "react";
 
 const GeneratedForm = ({ inputs }) => {
@@ -31,7 +30,7 @@ const GeneratedForm = ({ inputs }) => {
               <textarea
                 id={`input_${input.id}`}
                 name={`input_${input.id}`}
-                placeholder={input.placeholder}
+                placeholder={input.placeholder || `Enter your ${input.label}`}
                 className="p-2 border rounded w-full"
                 onChange={handleChange}
               />
@@ -40,7 +39,7 @@ const GeneratedForm = ({ inputs }) => {
                 id={`input_${input.id}`}
                 type={input.type}
                 name={`input_${input.id}`}
-                placeholder={input.placeholder}
+                placeholder={input.placeholder || `Enter your ${input.label}`}
                 className="p-2 border rounded w-full"
                 onChange={handleChange}
               />
