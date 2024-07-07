@@ -97,7 +97,7 @@ const FormGenerator = () => {
                     Lable
                   </label>
                   <input
-                    className="block mt-1 px-2 py-1 bg-[#1f2a38] outline-none text-gray-300 text-sm placeholder:text-xs placeholder:text-gray-400 border rounded w-full"
+                    className="block mt-1 px-2 py-1 lg:py-2 bg-[#1f2a38] outline-none text-gray-300 text-sm placeholder:text-xs placeholder:lg:text-base placeholder:text-gray-400 border rounded w-full"
                     type="text"
                     placeholder="Enter your lable"
                     value={input.label}
@@ -125,7 +125,7 @@ const FormGenerator = () => {
                   </label>
                   <div className="flex items-center gap-2">
                     <input
-                      className="block px-2 py-1 bg-[#1f2a38] text-gray-300 placeholder:lg:text-base placeholder:text-xs lg:text-base outline-none text-sm placeholder:text-gray-400 border rounded w-full"
+                      className="block px-2 py-1 lg:py-2 bg-[#1f2a38] text-gray-300 placeholder:lg:text-base placeholder:text-xs lg:text-base outline-none text-sm placeholder:text-gray-400 border rounded w-full"
                       type="text"
                       placeholder="Enter your placeholder"
                       value={input.placeholder}
