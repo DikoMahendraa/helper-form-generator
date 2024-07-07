@@ -317,19 +317,6 @@ const GeneratedCode = ({ inputs }) => {
         <h3 className="text-lg font-bold flex items-center gap-2">
           <Atom /> Generated React Code:
         </h3>
-        <div className="flex items-center gap-2">
-          {copied && (
-            <span className="text-xs italic text-cyan-500">
-              copied successfully!
-            </span>
-          )}
-          <button
-            className="px-4 py-2 flex text-sm items-center gap-2 bg-cyan-500 text-white rounded"
-            onClick={copyToClipboard}
-          >
-            <Copy size={18} /> Copy
-          </button>
-        </div>
       </div>
 
       <div className="my-8">
@@ -392,11 +379,28 @@ const GeneratedCode = ({ inputs }) => {
         </div>
         <ReferenceList />
       </div>
-      <pre className="whitespace-pre-wrap p-4 bg-gray-900 rounded break-words">
-        <code className="language-javascript !text-xs lg:!text-base">
-          {code}
-        </code>
-      </pre>
+      <div className="relative">
+        <div className="absolute right-0">
+          <button
+            className="px-4 py-2 flex lg:text-sm text-xs items-center gap-2 bg-cyan-500 text-white rounded"
+            onClick={copyToClipboard}
+          >
+            <Copy size={14} />
+            {copied ? (
+              <span className="text-xs italic text-white">
+                copied successfully!
+              </span>
+            ) : (
+              <span className="hidden lg:inline">Copy</span>
+            )}
+          </button>
+        </div>
+        <pre className="whitespace-pre-wrap p-4 bg-gray-900 rounded break-words">
+          <code className="language-javascript !text-xs lg:!text-base">
+            {code}
+          </code>
+        </pre>
+      </div>
     </div>
   );
 };
