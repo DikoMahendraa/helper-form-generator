@@ -2,7 +2,7 @@ import { FilePenLine, FileScan, Signature, Workflow } from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
 
-const LandingPage = () => {
+const HomePage = () => {
   return (
     <div className="bg-gradient-to-br relative from-black to-cyan-900 min-h-screen text-white">
       <header className="py-4">
@@ -119,4 +119,4 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+export default HomePage;

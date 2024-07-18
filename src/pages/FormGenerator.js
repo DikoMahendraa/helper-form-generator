@@ -1,5 +1,5 @@
 import React from "react";
-import FormGenerator from "./components/FormGenerator";
+import FormGenerator from "../components/molecules/FormGenerator";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 

@@ -3,41 +3,8 @@ import React, { useCallback, useEffect, useState } from "react";
 import Prism from "prismjs";
 import "prismjs/themes/prism-tomorrow.css";
 import "prismjs/components/prism-javascript";
-
-const references = [
-  { name: "Official Documentation Zod", url: "https://zod.dev/" },
-  { name: "Official Documentation Yup", url: "https://github.com/jquense/yup" },
-  {
-    name: "Official Documentation React Hook Form",
-    url: "https://react-hook-form.com/",
-  },
-  {
-    name: "Dokumentasi Integrasi React Hook Form + Zod / Yup",
-    url: "https://react-hook-form.com/get-started#SchemaValidation",
-  },
-];
-
-const ReferenceList = () => {
-  return (
-    <div className="lg:w-1/2 w-full mt-6 rounded shadow">
-      <h2 className="lg:text-lg text-base font-bold mb-4">
-        Official Documentation
-      </h2>
-      <ul className="list-disc pl-5 space-y-2">
-        {references.map((ref, index) => (
-          <li
-            key={index}
-            className="text-blue-500 lg:text-sm text-xs hover:underline"
-          >
-            <a href={ref.url} target="_blank" rel="noopener noreferrer">
-              {ref.name}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+import ListReferences from "./ListReferences";
+import Button from "../atoms/button";
 
 const GeneratedCode = ({ inputs }) => {
   const [copied, setCopied] = useState(false);
@@ -322,62 +289,34 @@ const GeneratedCode = ({ inputs }) => {
       <div className="my-8">
         <h5 className="mb-4">Integration with</h5>
         <div className="flex flex-wrap gap-2">
-          <button
-            onClick={() => onIntegrationWith("")}
-            className="px-4 py-2 hover:bg-cyan-600/50 flex text-sm items-center gap-2  border border-green-500 text-white rounded"
-          >
-            <RefreshCcw size={18} /> Default
-          </button>
-          <button
-            onClick={() => onIntegrationWith("zod")}
-            className="px-4 py-2 hover:bg-cyan-600/50 flex text-sm items-center gap-2  border border-cyan-500 text-white rounded"
-          >
-            <img
-              src="https://zod.dev/logo.svg"
-              alt="zod logo"
-              width={20}
-              height={20}
-            />
-            Zod Validation
-          </button>
-          <button
-            onClick={() => onIntegrationWith("yup")}
-            className="px-4 py-2 flex hover:bg-gray-600/50 text-sm items-center gap-2  border border-gray-500 text-white rounded"
-          >
-            <img
-              src="https://miro.medium.com/v2/resize:fit:1067/1*8pLiWUrglmnzfBYf1XJ4TA.jpeg"
-              alt="yup logo"
-              width={30}
-              height={20}
-            />
-            Yup Validation
-          </button>
-          <button
-            onClick={() => onIntegrationWith("zrhc")}
-            className="px-4 py-2 flex hover:bg-pink-600/50 text-sm items-center gap-2  border border-pink-500 text-white rounded"
-          >
-            <img
-              src="https://pbs.twimg.com/profile_images/1373527896472489987/YjVZynHb_400x400.jpg"
-              alt="zod + react hook form logo"
-              width={14}
-              height={14}
-            />
-            Zod + RHF
-          </button>
-          <button
-            onClick={() => onIntegrationWith("yrhc")}
-            className="px-4 py-2 flex hover:bg-pink-600/50 text-sm items-center gap-2  border border-pink-500 text-white rounded"
-          >
-            <img
-              src="https://pbs.twimg.com/profile_images/1373527896472489987/YjVZynHb_400x400.jpg"
-              alt="yup + react hook form logo"
-              width={14}
-              height={14}
-            />
-            Yup + RHF
-          </button>
+          <Button
+            onclick={() => onIntegrationWith("")}
+            text="Default"
+            icon={<RefreshCcw size={18} />}
+          />
+          <Button
+            isActive
+            onclick={() => onIntegrationWith("zod")}
+            text="Zod Validation"
+            image="https://zod.dev/logo.svg"
+          />
+          <Button
+            onclick={() => onIntegrationWith("yup")}
+            text="Yup Validation"
+            image="https://miro.medium.com/v2/resize:fit:1067/1*8pLiWUrglmnzfBYf1XJ4TA.jpeg"
+          />
+          <Button
+            onclick={() => onIntegrationWith("zrhc")}
+            text="Zod + RHF"
+            image="https://pbs.twimg.com/profile_images/1373527896472489987/YjVZynHb_400x400.jpg"
+          />
+          <Button
+            onclick={() => onIntegrationWith("yrhc")}
+            text="Yup + RHF"
+            image="https://pbs.twimg.com/profile_images/1373527896472489987/YjVZynHb_400x400.jpg"
+          />
         </div>
-        <ReferenceList />
+        <ListReferences />
       </div>
       <div className="relative">
         <div className="absolute right-0">

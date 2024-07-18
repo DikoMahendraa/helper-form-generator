@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import LandingPage from "./components/LandingPage";
-import App from "./App";
+import App from "./pages/FormGenerator";
+import HomePage from "./pages/Home";
 
 const RouterNavigation = () => {
   return (
     <Router>
       <Routes>
-        <Route element={<LandingPage />} path="/" />
+        <Route element={<HomePage />} path="/" />
         <Route element={<App />} path="/create-component" />
       </Routes>
     </Router>
