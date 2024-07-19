@@ -75,13 +75,12 @@ const FormGenerator = () => {
               >
                 <div className="w-full text-xs">
                   <label className="text-white lg:text-base text-sm">
-                    Lable
+                    Label
                   </label>
-
                   <input
                     className="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                     type="text"
-                    placeholder="Enter your lable"
+                    placeholder="Enter your label"
                     value={input.label}
                     onChange={(e) => handleLabelChange(index, e.target.value)}
                   />
@@ -99,6 +98,7 @@ const FormGenerator = () => {
                     <option value="email">Email</option>
                     <option value="password">Password</option>
                     <option value="textarea">Textarea</option>
+                    <option value="file">File Upload</option>
                   </select>
                 </div>
                 <div className="w-full">
@@ -107,13 +107,14 @@ const FormGenerator = () => {
                   </label>
                   <div className="flex items-center gap-2">
                     <input
-                      className="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      className="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm disabled:bg-gray-300"
                       type="text"
                       placeholder="Enter your placeholder"
                       value={input.placeholder}
                       onChange={(e) =>
                         handlePlaceholderChange(index, e.target.value)
                       }
+                      disabled={input.type === "file"}
                     />
                     <button onClick={() => onRemoveInput(input)}>
                       <Trash2 color="red" size={18} />
@@ -133,11 +134,13 @@ const FormGenerator = () => {
           </div>
         </div>
 
-        <GeneratedForm
-          setShowCode={() => setShowCode(!showCode)}
-          showCode={showCode}
-          inputs={inputs}
-        />
+        {!isEmptyState && (
+          <GeneratedForm
+            setShowCode={() => setShowCode(!showCode)}
+            showCode={showCode}
+            inputs={inputs}
+          />
+        )}
       </div>
       {showCode && <GeneratedCode inputs={inputs} />}
     </div>

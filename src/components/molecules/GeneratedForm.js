@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 const GeneratedForm = ({ inputs, showCode, setShowCode }) => {
   const [formData, setFormData] = useState({});
+  const [fileName, setFileName] = useState("");
 
   const handleChange = (e) => {
     setFormData({
@@ -14,6 +15,13 @@ const GeneratedForm = ({ inputs, showCode, setShowCode }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setFileName(file.name);
+    }
   };
 
   return (
@@ -35,6 +43,35 @@ const GeneratedForm = ({ inputs, showCode, setShowCode }) => {
                 className="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 onChange={handleChange}
               />
+            ) : input.type === "file" ? (
+              <div className="relative">
+                <input
+                  type="file"
+                  id="file-input"
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                  onChange={handleFileChange}
+                />
+                <label
+                  htmlFor="file-input"
+                  className="flex items-center justify-between px-3 py-2 bg-white text-gray-800 rounded-lg shadow-md cursor-pointer hover:bg-gray-700 transition-colors"
+                >
+                  <span className="truncate">{fileName || input.label}</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5 ml-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M12 8v8m0 0v-8M12 16l-4-4m4 4l4-4"
+                    />
+                  </svg>
+                </label>
+              </div>
             ) : (
               <input
                 id={`input_${input.id}`}
