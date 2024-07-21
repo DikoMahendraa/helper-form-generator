@@ -111,7 +111,7 @@ const FormGenerator = () => {
                     <option value="email">Email</option>
                     <option value="password">Password</option>
                     <option value="textarea">Textarea</option>
-                    <option value="file">File Upload</option>
+                    <option value="file">File</option>
                   </select>
                 </div>
                 <div className="w-full">
