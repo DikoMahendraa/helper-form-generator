@@ -15,5 +15,6 @@ ${inputs
   .join(",\n  ")}
 });`;
   }
+
   return "";
 };

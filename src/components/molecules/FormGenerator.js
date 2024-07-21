@@ -66,6 +66,9 @@ const FormGenerator = () => {
             !isEmptyState ? "lg:grid-cols-1" : "w-full"
           } w-full p-4 border-2 border-gray-500/50 rounded shadow`}
         >
+          <h1 className="text-white mb-6 font-semibold text-lg uppercase">
+            Create Form
+          </h1>
           {isEmptyState && <EmptyState />}
           <form onSubmit={handleSubmit}>
             {inputs.map((input, index) => (
@@ -142,6 +145,7 @@ const FormGenerator = () => {
           />
         )}
       </div>
+
       {showCode && <GeneratedCode inputs={inputs} />}
     </div>
   );

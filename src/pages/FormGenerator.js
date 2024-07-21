@@ -3,6 +3,10 @@ import FormGenerator from "../components/molecules/FormGenerator";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 
+import { atom } from "jotai";
+
+export const integrationWith = atom("");
+
 function App() {
   return (
     <div className="App container mx-auto p-4">

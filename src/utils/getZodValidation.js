@@ -2,8 +2,7 @@ export const getZodValidation = (input) => {
   if (input?.type === "email") {
     return "z.string({message: 'this field is required'}).email('Invalid email').min(1, {message: 'This field is required'})";
   } else if (input?.type === "file") {
-    return `
-        z.instanceof(File)
+    return `z.instanceof(File)
           .refine(file => file !== null, {
             message: '${input.name || "document"} is required'
           })
