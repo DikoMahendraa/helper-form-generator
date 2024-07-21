@@ -8,6 +8,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.2",
+    "jotai": "^2.9.0",
     "lucide-react": "^0.400.0",
     "openai": "^4.52.3",
     "prismjs": "^1.29.0",

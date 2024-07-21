@@ -15,7 +15,7 @@ const references = [
 
 const ListReferences = () => {
   return (
-    <div className="lg:w-1/2 w-full mt-6 rounded shadow">
+    <div className="lg:w-1/2 w-full mt-6  p-4 rounded-lg">
       <h2 className="lg:text-lg text-base font-bold mb-4">
         Official Documentation
       </h2>

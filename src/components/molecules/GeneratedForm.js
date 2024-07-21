@@ -25,7 +25,7 @@ const GeneratedForm = ({ inputs, showCode, setShowCode }) => {
   };
 
   return (
-    <div className="lg:w-1/2 flex flex-col justify-between w-full p-4 border-2 border-gray-500/50 rounded shadow">
+    <div className="w-full lg:grid-cols-1 p-4 border-2 border-gray-500/50 rounded shadow">
       <form onSubmit={handleSubmit}>
         {inputs.map((input) => (
           <div key={input.id} className="mb-4">

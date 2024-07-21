@@ -1,11 +1,9 @@
 export const generateInputCode = ({ input, validationLib }) => {
-  const commonProps = `\n          name="input_${
-    input.id
-  }"\n          placeholder="${
-    input.placeholder || `Enter your ${input.label}`
-  }"\n          className="p-2 border rounded w-full outline-none mb-1"
-  \n type="${input?.type}"`;
   const labelCode = ` <label className="block mb-2 mt-4 capitalize" htmlFor="input_${input?.id}">${input?.label}</label>`;
+  const commonProps = `name="input_${input.id}"
+        placeholder="${input.placeholder || `Enter your ${input.label}`}"
+        className="p-2 border rounded w-full outline-none mb-1"
+        type="${input?.type}"`;
 
   const getErrorKey = ["yrhc", "zrhc"].includes(validationLib)
     ? "errors"
@@ -33,10 +31,10 @@ export const generateInputCode = ({ input, validationLib }) => {
       }
         id="input_${input?.id}"  
         ${commonProps} />
-
    ${
      validationLib
-       ? `    {${getErrorKey}["input_${input?.id}"] && <p className="text-red-500 text-sm italic mb-2">
+       ? `
+        {${getErrorKey}["input_${input?.id}"] && <p className="text-red-500 text-sm italic mb-2">
           {${getErrorKey}["input_${input?.id}"]${getMessageKey}}
         </p>}`
        : ""
