@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import { atom } from "jotai";
 
-export const integrationWith = atom("");
+export const integrationWith = atom("Default");
 
 function App() {
   return (

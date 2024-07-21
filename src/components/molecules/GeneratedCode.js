@@ -17,12 +17,13 @@ const GeneratedCode = ({ inputs }) => {
     Prism.highlightAll();
   }, [inputs.length, _integrationWith, setIntegrationWith]);
 
-  const code = useCallback(() => {
-    return generateFormCode({ inputs, validationLib: _integrationWith });
-  }, [_integrationWith, inputs]);
+  const code = useCallback(
+    () => generateFormCode({ inputs, validationLib: _integrationWith }),
+    [_integrationWith, inputs]
+  );
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(code).then(() => {
+    navigator.clipboard.writeText(code()).then(() => {
       setCopied(true);
       setTimeout(() => {
         setCopied(false);
