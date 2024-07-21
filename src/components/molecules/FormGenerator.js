@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import GeneratedForm from "./GeneratedForm";
 import GeneratedCode from "./GeneratedCode";
 import { PackagePlus, Trash2 } from "lucide-react";
 import EmptyState from "./EmptyState";
+import { useAtom } from "jotai";
+import { integrationWith } from "../../pages/FormGenerator";
 
 const FormGenerator = () => {
   const [inputs, setInputs] = useState([]);
   const [showCode, setShowCode] = useState(false);
+  const [, setAtomValue] = useAtom(integrationWith);
 
   const isEmptyState = inputs.length <= 0;
 
@@ -57,6 +60,13 @@ const FormGenerator = () => {
 
     setInputs([...updateInputs]);
   };
+
+  useEffect(() => {
+    if (inputs.length === 0) {
+      setShowCode(false);
+      setAtomValue("");
+    }
+  }, [inputs.length, setAtomValue]);
 
   return (
     <div className="mx-auto">

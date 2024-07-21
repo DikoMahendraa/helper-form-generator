@@ -27,7 +27,7 @@ const GeneratedForm = ({ inputs, showCode, setShowCode }) => {
   return (
     <div className="w-full lg:grid-cols-1 p-4 border-2 border-gray-500/50 rounded shadow">
       <h1 className="text-white mb-6 font-semibold text-lg uppercase">
-        Sample UI
+        General UI
       </h1>
       <form onSubmit={handleSubmit}>
         {inputs.map((input) => (
