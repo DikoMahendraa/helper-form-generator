@@ -2,8 +2,7 @@ import { generateInputCode } from "./generateInputCode";
 import { generateValidationSchema } from "./generateValidationSchema";
 
 export const generateFormCode = ({ inputs, validationLib }) => {
-  if (!validationLib) {
-    return `
+  const commonFormCode = (inputComponents) => `
 import React, { useState } from 'react';
 
 const GeneratedForm = () => {
@@ -23,19 +22,26 @@ const GeneratedForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="w-1/2 p-4 bg-white rounded shadow">
-      ${inputs
-        ?.map((input) => generateInputCode({ input, validationLib }))
-        .join("\n      ")}
+      ${inputComponents}
       <button type="submit" className="px-4 py-2 bg-cyan-500 mt-4 text-white rounded">Submit</button>
     </form>
   );
 };
 
 export default GeneratedForm;
-    `;
+`;
+
+  if (!validationLib) {
+    const inputComponents = inputs
+      ?.map((input) => generateInputCode({ input }))
+      .join("\n      ");
+    return commonFormCode(inputComponents);
   }
 
   if (validationLib === "zod") {
+    const inputComponents = inputs
+      .map((input) => generateInputCode({ input, validationLib }))
+      .join("\n      ");
     return `
 import { z } from "zod";
 import React, { useState } from 'react';
@@ -43,7 +49,6 @@ import React, { useState } from 'react';
 ${generateValidationSchema({ inputs, validationLib })}
 
 const GeneratedForm = () => {
-  const [formData, setFormData] = useState({});
   const [validationErrors, setValidationErrors] = useState({});
 
   const validateForm = (formData) => {
@@ -70,9 +75,7 @@ const GeneratedForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="w-1/2 p-4 bg-white rounded shadow">
-      ${inputs
-        .map((input) => generateInputCode({ input, validationLib }))
-        .join("\n      ")}
+      ${inputComponents}
       <button type="submit" className="px-4 py-2 bg-cyan-500 mt-4 text-white rounded">Submit</button>
     </form>
   );
@@ -83,6 +86,9 @@ export default GeneratedForm;
   }
 
   if (validationLib === "yup") {
+    const inputComponents = inputs
+      .map((input) => generateInputCode({ input, validationLib }))
+      .join("\n      ");
     return `
 import * as yup from "yup";
 import React, { useState } from 'react';
@@ -90,7 +96,6 @@ import React, { useState } from 'react';
 ${generateValidationSchema({ inputs, validationLib })}
 
 const GeneratedForm = () => {
-  const [formData, setFormData] = useState({});
   const [validationErrors, setValidationErrors] = useState({});
 
   const validateForm = async (formData) => {
@@ -122,9 +127,7 @@ const GeneratedForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="w-1/2 p-4 bg-white rounded shadow">
-      ${inputs
-        .map((input) => generateInputCode({ input, validationLib }))
-        .join("\n      ")}
+      ${inputComponents}
       <button type="submit" className="px-4 py-2 bg-cyan-500 mt-4 text-white rounded">Submit</button>
     </form>
   );
@@ -134,18 +137,21 @@ export default GeneratedForm;
     `;
   }
 
+  const inputComponents = inputs
+    .map((input) => generateInputCode({ input, validationLib }))
+    .join("\n      ");
   return `
 import React from 'react';
 import { useForm } from 'react-hook-form';
 ${
-  validationLib?.includes("zrhc")
+  validationLib.includes("zrhc")
     ? `
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';`
     : ""
 }
 ${
-  validationLib?.includes("yrhc")
+  validationLib.includes("yrhc")
     ? `
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';`
@@ -169,9 +175,7 @@ const GeneratedForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-1/2 p-4 bg-white rounded shadow">
-      ${inputs
-        .map((input) => generateInputCode({ input, validationLib }))
-        .join("\n      ")}
+      ${inputComponents}
       <button type="submit" className="px-4 py-2 bg-cyan-500 mt-4 text-white rounded">Submit</button>
     </form>
   );
