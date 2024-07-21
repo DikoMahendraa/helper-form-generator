@@ -3,7 +3,9 @@ export const generateInputCode = ({ input, validationLib }) => {
     input.id
   }"\n          placeholder="${
     input.placeholder || `Enter your ${input.label}`
-  }"\n          className="p-2 border rounded w-full outline-none mb-1"`;
+  }"\n          className="p-2 border rounded w-full outline-none mb-1 \n type="${
+    input?.type
+  }""`;
   const labelCode = ` <label className="block mb-2 mt-4 capitalize" htmlFor="input_${input?.id}">${input?.label}</label> \n`;
 
   const getErrorKey = ["yrhc", "zrhc"].includes(validationLib)
@@ -31,7 +33,7 @@ export const generateInputCode = ({ input, validationLib }) => {
           : ""
       }
         id="input_${input?.id}"  
-        type="${input?.type}" ${commonProps} />
+        ${commonProps} />
 
    ${
      validationLib

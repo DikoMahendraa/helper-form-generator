@@ -15,8 +15,6 @@ const GeneratedCode = ({ inputs }) => {
     Prism.highlightAll();
   }, [inputs.length, validationLib]);
 
-  console.log({ inputs });
-
   const code = generateFormCode({ inputs, validationLib });
 
   const copyToClipboard = () => {

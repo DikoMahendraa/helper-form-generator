@@ -2,8 +2,6 @@ import { generateInputCode } from "./generateInputCode";
 import { generateValidationSchema } from "./generateValidationSchema";
 
 export const generateFormCode = ({ inputs, validationLib }) => {
-  console.log("generateFormCode", inputs, validationLib);
-
   if (!validationLib) {
     return `
 import React, { useState } from 'react';
