@@ -69,8 +69,8 @@ const FormGenerator = () => {
   }, [inputs.length, setAtomValue]);
 
   return (
-    <div className="mx-auto">
-      <div className="grid grid-cols-2 gap-4">
+    <div className="mx-auto overflow-y-auto">
+      <div className="grid lg:grid-cols-2 gap-4">
         <div
           className={`${
             !isEmptyState ? "lg:grid-cols-1" : "w-full"
